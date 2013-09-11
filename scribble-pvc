@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PATTERN="${PWD}/$2"
+
+SCRIBBLE='echo "${watch_src_path} ${watch_event_type}"; scribble'
+FMT=" --$1"
+
+if [ "$1" == "html" ]
+then
+    XREFS=' ++xref-in setup/xref load-collections-xref --redirect-main "http://docs.racket-lang.org/html"'
+else
+    XREFS=' ++xref-in setup/xref load-collections-xref'
+fi
+
+TARGET=' "${watch_src_path}"'
+
+COM=$SCRIBBLE$FMT$XREFS$TARGET
+
+watchmedo shell-command \
+	  -c "$COM" \
+	  -D -p "$PATTERN"
