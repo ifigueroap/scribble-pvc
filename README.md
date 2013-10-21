@@ -18,5 +18,5 @@ scribble-pvc [html|htmls|latex|pdf|latex-section|text|markdown] <file>
 Installation
 ------------
 
-Install watchmedo first
-Mark scribble-pvc script as executable and put it into your path.
+* Install [watchmedo](https://pypi.python.org/pypi/watchdog) first
+* Mark scribble-pvc script as executable and put it into your path.
