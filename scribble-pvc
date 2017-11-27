@@ -1,6 +1,8 @@
 #!/bin/bash
 
-PATTERN="${PWD}/$2"
+
+#PATTERN="${PWD}/$2"
+PATTERN="$2"
 
 SCRIBBLE='echo "${watch_src_path} ${watch_event_type}"; scribble'
 FMT=" --$1"
@@ -15,6 +17,8 @@ fi
 TARGET=' "${watch_src_path}"'
 
 COM=$SCRIBBLE$FMT$XREFS$TARGET
+
+echo "Watching file $PATTERN with format $1"
 
 watchmedo shell-command \
 	  -c "$COM" \
